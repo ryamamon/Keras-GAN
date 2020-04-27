@@ -39,6 +39,10 @@ Collection of Keras implementations of Generative Adversarial Networks (GANs) su
 
 ## Implementations   
 ### AC-GAN
+- Discriminatorに「多クラス分類を追加」
+
+- よりバリエーションの多い画像出力を可能とする手法
+
 Implementation of _Auxiliary Classifier Generative Adversarial Network_.
 
 [Code](acgan/acgan.py)
@@ -56,6 +60,10 @@ $ python3 acgan.py
 </p>
 
 ### Adversarial Autoencoder
+
+- オートエンコーダの潜在ベクトル を任意の分布かどうかを騙す
+- Discreminatorは潜在ベクトルか任意の分布かを判定する
+
 Implementation of _Adversarial Autoencoder_.
 
 [Code](aae/aae.py)
@@ -73,6 +81,10 @@ $ python3 aae.py
 </p>
 
 ### BiGAN
+
+- データxを潜在空間にマッピングするエンコーダを追加
+- generatorは潜在空間の値を用いてデータを生成
+
 Implementation of _Bidirectional Generative Adversarial Network_.
 
 [Code](bigan/bigan.py)
@@ -86,6 +98,9 @@ $ python3 bigan.py
 ```
 
 ### BGAN
+
+- 離散データでGANを訓練
+
 Implementation of _Boundary-Seeking Generative Adversarial Networks_.
 
 [Code](bgan/bgan.py)
@@ -99,6 +114,9 @@ $ python3 bgan.py
 ```
 
 ### CC-GAN
+
+- 画像復元（四角い穴を埋める）
+
 Implementation of _Semi-Supervised Learning with Context-Conditional Generative Adversarial Networks_.
 
 [Code](ccgan/ccgan.py)
@@ -116,6 +134,9 @@ $ python3 ccgan.py
 </p>
 
 ### CGAN
+
+- Generatorの入力に条件ベクトル(カテゴリ)を加えた
+
 Implementation of _Conditional Generative Adversarial Nets_.
 
 [Code](cgan/cgan.py)
@@ -133,6 +154,10 @@ $ python3 cgan.py
 </p>
 
 ### Context Encoder
+
+- 画像復元（四角い穴を埋める）
+- 名の通りencoderを追加している
+
 Implementation of _Context Encoders: Feature Learning by Inpainting_.
 
 [Code](context_encoder/context_encoder.py)
@@ -150,6 +175,10 @@ $ python3 context_encoder.py
 </p>
 
 ### CoGAN
+
+- 同一表現ベクトルzから2つのgeneratorで別ドメインの画像を生成
+- Disciminatorが生成画像とドメイン実画像を識別
+
 Implementation of _Coupled generative adversarial networks_.
 
 [Code](cogan/cogan.py)
@@ -163,6 +192,11 @@ $ python3 cogan.py
 ```
 
 ### CycleGAN
+
+- ソースドメインXからターゲットドメインYへの画像の変換
+
+  
+
 Implementation of _Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks_.
 
 [Code](cyclegan/cyclegan.py)
@@ -178,14 +212,16 @@ Paper: https://arxiv.org/abs/1703.10593
 $ cd cyclegan/
 $ bash download_dataset.sh apple2orange
 $ python3 cyclegan.py
-```   
+```
 
 <p align="center">
     <img src="http://eriklindernoren.se/images/cyclegan_gif.gif" width="640"\>
 </p>
 
-
 ### DCGAN
+
+- GeneratorとDiscriminatorのそれぞれのネットワークに畳み込み層を使用している
+
 Implementation of _Deep Convolutional Generative Adversarial Network_.
 
 [Code](dcgan/dcgan.py)
@@ -203,6 +239,11 @@ $ python3 dcgan.py
 </p>
 
 ### DiscoGAN
+
+- 2つのラベル無し画像の集合を用いた学習
+- 事前学習が不要な学習モデル
+- 双方向にドメイン変換が可能になっている
+
 Implementation of _Learning to Discover Cross-Domain Relations with Generative Adversarial Networks_.
 
 [Code](discogan/discogan.py)
@@ -218,13 +259,17 @@ Paper: https://arxiv.org/abs/1703.05192
 $ cd discogan/
 $ bash download_dataset.sh edges2shoes
 $ python3 discogan.py
-```   
+```
 
 <p align="center">
     <img src="http://eriklindernoren.se/images/discogan.png" width="640"\>
 </p>
 
 ### DualGAN
+
+-  domain 変換(例えばイラスト↔ 写真といった変換)
+- イラストの集合と写真の集合」がデータとして与えられている状況
+
 Implementation of _DualGAN: Unsupervised Dual Learning for Image-to-Image Translation_.
 
 [Code](dualgan/dualgan.py)
@@ -255,6 +300,11 @@ $ python3 gan.py
 </p>
 
 ### InfoGAN
+
+- generatorの入力をc（latent variable）とする
+- CGANとの違いは暗黙的に生成データxとcを結びつける
+- （CGANは明示的に生成データxとcを結びつける）
+
 Implementation of _InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets_.
 
 [Code](infogan/infogan.py)
@@ -272,6 +322,10 @@ $ python3 infogan.py
 </p>
 
 ### LSGAN
+
+- 二乗誤差を使うことで普通のDCGANより本物に近い画像
+- 実装が簡単
+
 Implementation of _Least Squares Generative Adversarial Networks_.
 
 [Code](lsgan/lsgan.py)
@@ -285,6 +339,10 @@ $ python3 lsgan.py
 ```
 
 ### Pix2Pix
+
+- 2つのペアの画像から画像間の関係を学習
+- 1枚の画像からその関係を考慮した補間をしてペアの画像を生成する
+
 Implementation of _Image-to-Image Translation with Conditional Adversarial Networks_.
 
 [Code](pix2pix/pix2pix.py)
@@ -300,13 +358,18 @@ Paper: https://arxiv.org/abs/1611.07004
 $ cd pix2pix/
 $ bash download_dataset.sh facades
 $ python3 pix2pix.py
-```   
+```
 
 <p align="center">
     <img src="http://eriklindernoren.se/images/pix2pix2.png" width="640"\>
 </p>
 
 ### PixelDA
+
+- Domain Adaptation
+
+- Domain A及びDomain Bから共通的な特徴を抽出する
+
 Implementation of _Unsupervised Pixel-Level Domain Adaptation with Generative Adversarial Networks_.
 
 [Code](pixelda/pixelda.py)
@@ -344,6 +407,9 @@ $ python3 sgan.py
 </p>
 
 ### SRGAN
+
+- 低画質 to 高画質
+
 Implementation of _Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network_.
 
 [Code](srgan/srgan.py)
@@ -367,6 +433,9 @@ $ python3 srgan.py
 </p>
 
 ### WGAN
+
+- Wasserstein距離により損失関数を設計
+
 Implementation of _Wasserstein GAN_ (with DCGAN generator and discriminator).
 
 [Code](wgan/wgan.py)
@@ -384,6 +453,11 @@ $ python3 wgan.py
 </p>
 
 ### WGAN GP
+
+- 学習の安定化、計算方法の工夫
+
+- Grgdient penalityを導入
+
 Implementation of _Improved Training of Wasserstein GANs_.
 
 [Code](wgan_gp/wgan_gp.py)
